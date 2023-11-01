@@ -1,0 +1,48 @@
+Part One: Solidify Terminology
+
+    What is HTTP?: It's how browsers and servers communicate (It stands for Hypertext transfer protocol)
+
+    What is URL?: (Uniform Resource Locator) Is the address of a resource on the web.
+
+    What is DNS?: It's the domain name system, the phonebook of the internet.
+
+    What is a query string?: It's part of a URL which assigns values to parameters. Most commonly they contain the values of text upon form submission.
+
+    What are the two HTTP verbs and how are they different?: The two verbs are POST and GET. The difference between the two is that GET just GETS the information requested from the database, leaving it unmodified, while POST, POSTS some information on the database, or modifies it.
+
+    What is an HTTP request?: It's a request made to access a resource on the server, the request is made by parts of a URL.
+
+    What is an HTTP response?: It's a response made to give the client the resource requested or to tell the client that the action that it requested has been carried out.
+
+    What is an HTTP header?: metadata about the http request or response, ex: q=search, status code: 304
+
+    What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?: The hostname "site.com" will be turned into an IP address by DNS, and it will go into port 80 since it's HTTP. Then it will talk to a "web server" program on the server. Many servers dynamically generate a page, but some have them read an actual file. Now, for some webpages it will stop here. But if it's from a search term or a filled out form, etc. Then you will use a query string which provides "extra information", so the server which is provided with this information will use that to change the page based upon that.
+
+
+Part Two: Practice Tools
+
+    1. $ curl -H "Accept: text/plain" https://icanhazdadjoke.com/search?term="pirate"
+        What did the pirate say on his 80th birthday? Aye Matey!
+        What does a pirate pay for his corn? A buccaneer!
+        Why couldn't the kid see the pirate movie? Because it was rated arrr!
+        Why do pirates not know the alphabet? They always get stuck at "C".
+
+    2.  dig icanhazdadjoke.com +short
+        104.21.66.15
+        172.67.198.173
+
+    3. python3 -m http.server
+        It shows my webpage of the calculator app that I made as an example.
+
+    
+Part Three: Explore Dev Tools
+
+    Check index.html
+
+
+Part Four: Explore the URL API
+
+    const myUrl = new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley");
+    console.log(myUrl.hostname); // www.youtube.com
+    console.log(myUrl.pathname); // /watch
+    console.log(myUrl.href); // https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley
